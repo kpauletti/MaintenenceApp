@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  note: MyString
+  picture: MyString
+  driveable: false
+  mechanic: MyString
+  completed: false
+  car: one
+
+two:
+  category: MyString
+  note: MyString
+  picture: MyString
+  driveable: false
+  mechanic: MyString
+  completed: false
+  car: two

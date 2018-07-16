@@ -1,0 +1,10 @@
+<h1><%= "Ticket for Car ##{@ticket.car_id}"%></h1>
+
+<%= link_to 'Home', root_path %>
+<% if notice %>
+<div> <%= notice %> </div>
+<% end %>
+
+<%= @ticket.category %>
+<%= @ticket.car_id %>
+
