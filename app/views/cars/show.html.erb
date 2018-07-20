@@ -1,0 +1,16 @@
+<h1> <%= @car.name %> <h2>
+
+ 
+
+ <% if @car.tickets.present? %>
+     <h3> OPEN ISSUES </h3>
+        <%if @car.tickets.one? %>
+        ONE TICKET
+        <% else @car.tickets.each do |ticket|%>
+            ticket
+        <% end %>
+        <% end %>
+        <% else %>
+        <h3> NO ISSUES </h3>
+
+<% end %>

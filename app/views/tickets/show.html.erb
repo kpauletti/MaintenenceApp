@@ -1,10 +1,69 @@
-<h1><%= "Ticket for Car ##{@ticket.car_id}"%></h1>
+<nav class='navbar'> 
+    <%= link_to :back  do%>
+        <span class='backButton'>
+            <i class="fas fa-caret-left fa-2x"></i> 
+        </span>
+    <% end %>
+    PRIORITY TO-DO LIST 
+</nav>
 
-<%= link_to 'Home', root_path %>
+
+<h2 class="header"><%= @ticket.car.name %></h1>
+
 <% if notice %>
 <div> <%= notice %> </div>
 <% end %>
 
-<%= @ticket.category %>
-<%= @ticket.car_id %>
+<div class="carContainer">
+
+    <div class='ticketItem'>
+        DESCRIPTION<br><br>
+    
+       <span class='wordBorder'> <%= @ticket.category %> </span>
+
+    </div>
+
+    <div class='ticketItem'>
+        NOTES<br><br>
+        <%= @ticket.note %>
+    </div>
+
+    <div class='ticketItem'>
+        <%= link_to @ticket.picture.url do %>
+            <div class="imageContainer">
+                PICTURE<br>
+                <% if @ticket.picture.url %>
+                    <%= image_tag @ticket.picture.url, :class => "imgPreview" %>
+                <% else %>
+                    No Picture Added
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+
+    <%= form_for @ticket, method: "patch" do |f| %>
+        <%= f.hidden_field :category, value: @ticket.category %>
+        <%= f.hidden_field :note, value: @ticket.note %>
+        <%= f.hidden_field :picture, value: @ticket.picture %>
+        <%= f.hidden_field :mechanic, value: @ticket.mechanic %>
+        <%= f.hidden_field :car_id, value: @ticket.car_id %>
+        <%= f.hidden_field :driveable, value: true %>        
+        <% if URI(request.referer).path == '/todo' %>
+            <div class='submitTicketButton'>
+                <%= f.hidden_field :completed, value: true %>
+                <%= f.submit "CLOSE ISSUE", class: 'submitButton' %>
+            </div>
+        <% elsif URI(request.referer).path == '/completed-tickets' %> 
+            <div class='submitTicketButton'>
+                <%= f.hidden_field :completed, value: false %>
+                <%= f.submit "REOPEN ISSUE", class: 'submitButton' %>
+            </div>   
+        <% end %>
+    <% end %>
+
+</div>
+
+
+
+
 

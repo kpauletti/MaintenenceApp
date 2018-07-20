@@ -1,21 +1,53 @@
-<h1> <%= "Car #{params[:car_id]}" %> </h1>
+<nav class='navbar'> 
+    <%= link_to :back  do%>
+        <span class='backButton'>
+            <i class="fas fa-caret-left fa-2x"></i> 
+        </span>
+    <% end %>
+    ADD ISSUE  
+</nav>
 
 
+<div class='newTicketHeader'>
+    <h2 class='header'> <%= @car.name %> </h2> 
+    <p class='gen'> <%= @car.generation %> </p>
+</div>
+
+<div class='ticketContainer'>
 <%= form_for @ticket, url: { action: "create" } do |f| %>
-    <div>
-        Damage Type: <%= f.select :category, ['Mechanical', 'Electrical', 'Body', 'Other' ]%> 
+    <div class='ticketItem'>
+        MAINTENANCE CATEGORY<br><br>
+        <div class='select-style'>
+            <%= f.select :category, ['Mechanical', 'Electrical', 'Body', 'Other' ], {}, {required: 'true', autofocus: 'true' }%> 
+        </div>
     </div>
-    <div>
-        Is the car driveable?: <%= f.select :driveable, [ true, false ]%> 
+    <div class='ticketItem'>
+        CAN THE CAR DRIVE?<br><br>
+        <div class='select-style'>    
+            <%= f.select :driveable, [ ["Yes", true], ["No", false] ], {}, {required: 'true', autofocus: 'true' }%> 
+        </div>
     </div>
-    <div>
-        <%= f.file_field :picture %>
+    <div class='ticketItem'>
+        <div class="image-upload">
+            ADD PICTURE<br><br>
+            <label for="file-input">
+            <i class="far fa-plus-square fa-3x"></i>
+            </label>
+            <%= f.file_field :picture, id:"file-input" %>
+        </div>
+
     </div>
-    <div>
-        Notes: <%= f.text_area :note, size: "60x12" %> <br>
+    <div class='ticketItem'>
+        NOTES<br> <%= f.text_field :note %> <br>
     </div>
-    <%= f.hidden_field :car_id, value: params[:car_id] %>
-    <%= f.hidden_field :completed, value: false %>
-    <%= f.submit "Create" %>
+    <div class='ticketItem'>
+        WHO WILL WORK ON THIS<br> <%= f.text_field :mechanic %>
+    </div>
+        <%= f.hidden_field :car_id, value: params[:car_id] %>
+        <%= f.hidden_field :completed, value: false %>
+    <div class='submitTicketButton'>
+        <%= f.submit "SEND", class: 'submitButton' %>
+    </div>
 <% end %>
+</div>
 

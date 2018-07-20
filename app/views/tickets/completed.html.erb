@@ -1,0 +1,25 @@
+<nav class='navbar'> 
+    <%= link_to :root  do%>
+        <span class='backButton'>
+            <i class="fas fa-caret-left fa-2x"></i> 
+        </span>
+    <% end %>
+    COMPLETED ISSUES
+</nav>
+
+<h2 class="header">   </h2>
+
+<div class='priorityBox'>
+    <div class='priorityBoxTitle'> COMPLETED TICKETS </div>
+    <% @completed.each do |item| %>
+        <div class='priorityTickets'>
+             <%= link_to ticket_path(:id => item.id) do %>
+                <div class='ticketLink'>
+                    <div class="leftDiv"><%= item.car.name %></div>
+                    <div class="centerDiv"><%= item.category %></div>
+                    <div class="rightDiv"><%= item.car.generation %></div>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>

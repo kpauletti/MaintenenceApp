@@ -1,16 +1,22 @@
-<h1>Choose car</h1>
+<nav class='navbar'> 
+    <%= link_to :root do%>
+        <span class='backButton'>
+            <i class="fas fa-caret-left fa-2x"></i> 
+        </span>
+    <% end %>
+    ADD ISSUE  
+</nav>
+<h2 class="header">CHOOSE CAR</h2>
 
 
-<ul>
-<% @cars.each do |car| %>
+<div class='carContainer'>
+        <% @cars.each do |car| %>          
+            <%= link_to new_ticket_path(:car_id => car.id) do %>
+                <div class='carLink'> 
+                    <p class="alignleft"> <%= car.name %> </p>
+                    <p class="alignright"> <%= car.generation %> </p>
+                </div>
+            <% end %>
+        <% end %>
+</div>
 
-    <li> 
-        <%= car.name %> | 
-        <%= car.generation %>
-         <%= link_to 'New Ticket', new_ticket_path(:car_id => car.id) %>
-    </li>
-
-
-
-<% end %>
-</ul>
