@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root 'pages#home'
   get '/todo' => 'pages#todo_index'
   get 'completed-tickets' => 'tickets#completed'
+  get 'all' => 'cars#all_cars'
 end

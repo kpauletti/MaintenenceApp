@@ -1,0 +1,20 @@
+<nav class='navbar'> 
+    <%= link_to :root do%>
+        <span class='backButton'>
+            <i class="fas fa-caret-left fa-2x"></i> 
+        </span>
+    <% end %>
+    CARS  
+</nav>
+<h2 class="header">ALL CARS</h2>
+
+<div class='carContainer'>
+        <% @cars.each do |car| %>          
+            <%= link_to car_path(:id => car.id) do %>
+                <div class='carLink'> 
+                    <p class="alignleft"> <%= car.name %> </p>
+                    <p class="alignright"> <%= car.generation %> </p>
+                </div>
+            <% end %>
+        <% end %>
+</div>

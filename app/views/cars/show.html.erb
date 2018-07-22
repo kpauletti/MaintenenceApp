@@ -1,7 +1,16 @@
-<h1> <%= @car.name %> <h2>
+<nav class='navbar'> 
+    <%= link_to :back do%>
+        <span class='backButton'>
+            <i class="fas fa-caret-left fa-2x"></i> 
+        </span>
+    <% end %>
+    <%= @car.name %> 
+</nav>
+
+<h2 class="header"> OPEN ISSUES </h2>
 
  
-
+<div class='carContainer'>
  <% if @car.tickets.present? %>
      <h3> OPEN ISSUES </h3>
         <%if @car.tickets.one? %>
@@ -14,3 +23,5 @@
         <h3> NO ISSUES </h3>
 
 <% end %>
+
+</div>

@@ -3,6 +3,8 @@
 <div class="imgdiv">
     <img src="https://i.imgur.com/wqfPOwS.png" alt="Free Bee Logo">
 </div>
+
+<%# old style hex %>
 <% if false %>
 <div class='homeContainer'>
 
@@ -86,9 +88,11 @@
             <% end %>
         </li>
         <li>
-            <div class="hexagon">
-                <p class='hexText'> COMING SOON </p>
-            </div>
+            <%= link_to all_path do %>
+                <div class="hexagon">
+                <p class='hexText'> CARS </p>
+                </div>
+            <% end %>
         </li>
 </ul>
 
