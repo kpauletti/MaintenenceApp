@@ -32,13 +32,16 @@ body {
 }
 
 .imgdiv {
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
 
 img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 60%; /* you can use % */
+    height: auto
+
 }
 
 .addissue {
@@ -195,7 +198,7 @@ a {
     border: 2px solid #102f5a;
     width: auto;
     height: auto;
-    min-height: 150px;
+    min-height: 120px;
     overflow: hidden;
 }
 
@@ -208,7 +211,7 @@ a {
 .priorityBoxTitle {
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
     background-color: #102f5a;
     color: white;
@@ -269,6 +272,7 @@ a {
 
 
 /* NEW HEXAGONS */
+
 #grid {
     position: relative;
     width: 90%;

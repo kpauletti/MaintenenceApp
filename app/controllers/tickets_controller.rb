@@ -17,7 +17,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
  
     @ticket.save
-    redirect_to @ticket, notice: "New ticket created!"
+    redirect_to todo_path
   end
 
   def update
