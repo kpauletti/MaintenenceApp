@@ -26,7 +26,7 @@ $(document).on('turbolinks:load', function() {
             center: 'title',
             right: 'month,listYear'
         },
-        googleCalendarApiKey: 'AIzaSyC3g2pUoq-inHV1mCW0LMqqVhyXjlL6QIM',
+        googleCalendarApiKey: `<%= Rails.application.secrets.google_api_key %>`,
         events: {
             googleCalendarId: '7jiqsugob1t0kua9snlulia80g@group.calendar.google.com'
         }

@@ -31,3 +31,5 @@
 
 #Ignore local photo files
 /public/uploads
+
+/config/secrets.yml
