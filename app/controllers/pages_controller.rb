@@ -9,4 +9,9 @@ class PagesController < ApplicationController
     @high_priority_todo = Ticket.where(completed: false, driveable: false)
   end
 
+  def calendar
+    
+  end
+  
+
 end

@@ -74,13 +74,6 @@ img {
     left: 230px;
 }
 
-.calendar {
-    position: absolute;
-    top: 200px;
-    left: 50px;
-
-}
-
 .header {
     text-align: center;
     font-weight: 600;
@@ -383,5 +376,11 @@ a {
     transform: translate(-50%, -50%);
     }
 
+
+.calendar {
+    position: absolute;
+    top: 20%;
+    margin: 20px;
+}
     
     
