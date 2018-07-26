@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :cars
   resources :tickets
+  resources :events
   root 'pages#home'
   get '/todo' => 'pages#todo_index'
   get 'completed-tickets' => 'tickets#completed'
