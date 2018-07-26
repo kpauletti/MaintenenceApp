@@ -14,6 +14,7 @@
 //= require jquery
 //= require moment
 //= require fullcalendar
+//= require daterangepicker
 //= require gcal 
 //= require rails-ujs
 //= require activestorage

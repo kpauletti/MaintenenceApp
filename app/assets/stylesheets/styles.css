@@ -380,7 +380,8 @@ a {
 .calendar {
     position: absolute;
     top: 20%;
-    margin: 20px;
+    width: 100%;
+    height: auto;
 }
     
     
