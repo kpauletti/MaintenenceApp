@@ -437,5 +437,19 @@ a {
 .newUzer {
     margin-bottom: 20%;
 }
+
+.uzer input {
+    background-color: #102f5a; /* Blue background color */
+
+    border-radius: 20px; /* Curve of border corners */
+
+    text-transform: uppercase; /* Make letters uppercase */
+
+    color: white; /* Text color */
+
+    padding: 10px;
+
+} 
+
     
     
