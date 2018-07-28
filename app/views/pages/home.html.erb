@@ -1,4 +1,11 @@
-<nav class='navbar'> DASHBOARD </nav>
+<nav class='navbar'> 
+    DASHBOARD 
+   <%= link_to(destroy_user_session_path, controller: 'sessions', method: :delete) do %>
+       <span class='navSignout'>
+           <i class="fas fa-sign-out-alt fa-2x"></i>
+       </span>
+   <% end %>    
+</nav>
 
 <div class="imgdiv">
     <img src="https://i.imgur.com/wqfPOwS.png" alt="Free Bee Logo">
@@ -96,21 +103,22 @@
         </li>
         <li>
             <%= link_to all_path do %>
-                <div class="hexagon">
+                <div class="hexagon hide">
                 <p class='hexText'> CARS </p>
                 </div>
             <% end %>
         </li>
-        <li>
-            <%= link_to all_path do %>
-                <div class="hexagon">
-                <p class='hexText'> CARS </p>
-                </div>
+        <li><% if current_user.admin? %>
+                <%= link_to admin_path do %>
+                    <div class="hexagon ">
+                    <p class='hexText'> ADMIN </p>
+                    </div>
+                <% end %>
             <% end %>
         </li>
         <li>
             <%= link_to all_path do %>
-                <div class="hexagon">
+                <div class="hexagon hide">
                 <p class='hexText'> CARS </p>
                 </div>
             <% end %>

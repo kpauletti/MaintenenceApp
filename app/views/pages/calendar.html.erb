@@ -5,6 +5,11 @@
         </span>
     <% end %>
     CALENDAR
+   <%= link_to(destroy_user_session_path, controller: 'sessions', method: :delete) do %>
+       <span class='navSignout'>
+           <i class="fas fa-sign-out-alt fa-2x"></i>
+       </span>
+   <% end %>
 </nav>
 
 

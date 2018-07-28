@@ -4,7 +4,12 @@
             <i class="fas fa-caret-left fa-2x"></i> 
         </span>
     <% end %>
-    ADD ISSUE  
+    ADD ISSUE
+   <%= link_to(destroy_user_session_path, controller: 'sessions', method: :delete) do %>
+       <span class='navSignout'>
+           <i class="fas fa-sign-out-alt fa-2x"></i>
+       </span>
+   <% end %>  
 </nav>
 <h2 class="header">CHOOSE CAR</h2>
 

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   resources :cars
   resources :tickets
   resources :events
@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get 'completed-tickets' => 'tickets#completed'
   get 'all' => 'cars#all_cars'
   get 'calendar' => 'pages#calendar'
+  get 'admin' => 'pages#admin'
 end

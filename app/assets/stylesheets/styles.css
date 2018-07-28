@@ -6,8 +6,15 @@
     unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
   }
 
-body {
+html {
+    height: 100%;
+}
+  
+html, body {
     font-family: 'Montserrat', sans-serif;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .navbar {
@@ -25,10 +32,19 @@ body {
 
 }
 
+.navSignout {
+    float: right;
+    color: #cad94a;
+    font-size: 11px;
+    line-height: 0;
+    padding-top: 1%
+}
+
 .backButton {
     float: left;
     color: #cad94a;
     line-height: 0;
+    margin: auto;
 }
 
 .imgdiv {
@@ -376,12 +392,50 @@ a {
     transform: translate(-50%, -50%);
     }
 
+.hide {
+    display: none;
+}
+
 
 .calendar {
     position: absolute;
     top: 20%;
     width: 100%;
     height: auto;
+}
+.adminContainer {
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    min-height: 800px;
+}
+
+.newUserParent {
+    margin: auto;
+    text-align: center;
+    border: 2px solid #102f5a;
+    border-radius: 10px;
+    font-weight: 900;
+    margin-top: 50%;
+    font-size: 24px;
+    background-color: #102f5a;
+}
+
+.newUserChild a {
+    margin: 20%;
+    line-height: 100px;
+    color: #cad94a;
+}
+
+.adminContainer form {
+    text-align: center;
+}
+
+.newUserField {
+    margin: 10px;
+    font-weight: bold;
+}
+
+.newUzer {
+    margin-bottom: 20%;
 }
     
     
