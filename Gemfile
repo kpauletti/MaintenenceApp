@@ -72,3 +72,6 @@ gem "carrierwave", "~> 1.2"
 gem "devise", "~> 4.4"
 
 gem 'simple_form'
+gem "daemons", "~> 1.2"
+
+gem "twilio-ruby", "~> 5.11"
