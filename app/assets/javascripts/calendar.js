@@ -1,38 +1,3 @@
-// $(document).on('turbolinks:load', function() {
-//     $('.calendar').fullCalendar({
-//         defaultView: 'month',
-//         header:
-//         {
-//             left: 'prev,next today',
-//             center: 'title',
-//             right: ''
-//         }
-
-//     });
-// })
-
-
-
-
-// $(document).on('turbolinks:load', function() {
-//     $('.calendar').fullCalendar({
-//         themeSystem: 'bootstrap4',
-//         selectable: true,
-//         selectHelper: true,
-//         editable: true,
-//         header:
-//         {
-//             left: 'prev,next today',
-//             center: 'title',
-//             right: 'month,listYear'
-//         },
-//         googleCalendarApiKey: `<%= Rails.application.secrets.google_api_key %>`,
-//         events: {
-//             googleCalendarId: '7jiqsugob1t0kua9snlulia80g@group.calendar.google.com'
-//         }
-//     });
-
-// });
 
 var initialize_calendar;
 initialize_calendar = function() {
@@ -49,7 +14,7 @@ initialize_calendar = function() {
       selectHelper: true,
       editable: true,
       eventLimit: true,
-      googleCalendarApiKey: `<%= Rails.application.secrets.google_api_key %>`,
+      googleCalendarApiKey: googleCalendarApiKey,
       eventSources: [
                 {
                   googleCalendarId: '7jiqsugob1t0kua9snlulia80g@group.calendar.google.com',

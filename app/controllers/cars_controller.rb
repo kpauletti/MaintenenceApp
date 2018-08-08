@@ -1,5 +1,4 @@
 class CarsController < ApplicationController
-
   def index
     @cars = Car.all
   end
@@ -10,6 +9,5 @@ class CarsController < ApplicationController
 
   def all_cars
     @cars = Car.all
-
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_28_154612) do
+ActiveRecord::Schema.define(version: 2018_08_06_172304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,22 @@ ActiveRecord::Schema.define(version: 2018_07_28_154612) do
     t.string "generation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "mileage"
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
   create_table "events", force: :cascade do |t|
@@ -27,6 +43,15 @@ ActiveRecord::Schema.define(version: 2018_07_28_154612) do
     t.datetime "start"
     t.datetime "end"
     t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parts", force: :cascade do |t|
+    t.string "name"
+    t.string "part_num"
+    t.integer "quantity"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,6 +66,10 @@ ActiveRecord::Schema.define(version: 2018_07_28_154612) do
     t.bigint "car_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
+    t.text "final_resolution"
+    t.string "time_spent"
+    t.string "part_used"
     t.index ["car_id"], name: "index_tickets_on_car_id"
   end
 

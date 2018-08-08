@@ -1,0 +1,7 @@
+<h1>Editing Part</h1>
+
+<%= render 'form', part: @part %>
+
+<%= link_to 'Show', @part %> |
+<%= link_to 'Destroy', @part, method: :delete, data: { confirm: 'Are you sure? Deleting will completely remove this part.' } %> |
+<%= link_to 'Back', parts_path %>

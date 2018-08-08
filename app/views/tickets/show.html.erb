@@ -29,8 +29,10 @@
     </div>
 
     <div class='ticketItem'>
-        NOTES<br><br>
+        NOTES<br>
+        <span class='ticketText'>
         <%= @ticket.note %>
+        </span>
     </div>
 
     <div class='ticketItem'>
@@ -46,24 +48,29 @@
         <% end %>
     </div>
 
-    <%= form_for @ticket, method: "patch" do |f| %>
+
+                <%= form_for @ticket, method: "patch" do |f| %>
         <%= f.hidden_field :category, value: @ticket.category %>
         <%= f.hidden_field :note, value: @ticket.note %>
         <%= f.hidden_field :picture, value: @ticket.picture %>
         <%= f.hidden_field :mechanic, value: @ticket.mechanic %>
         <%= f.hidden_field :car_id, value: @ticket.car_id %>
-        <%= f.hidden_field :driveable, value: true %>        
-        <% if URI(request.referer).path == '/todo' %>
+        <%= f.hidden_field :driveable, value: true %>
+              
+        <% if @ticket.completed == false %>
             <div class='submitTicketButton'>
-                <%= f.hidden_field :completed, value: true %>
-                <%= f.submit "CLOSE ISSUE", class: 'submitButton' %>
+                <%= link_to finalize_path(:id => @ticket.id) do %>
+                <span style="text-decoration: none;" class='submitButton'>CLOSE TICKET</span>
+                <% end %>
             </div>
-        <% elsif URI(request.referer).path == '/completed-tickets' %> 
+        <% elsif @ticket.completed == true %> 
             <div class='submitTicketButton'>
                 <%= f.hidden_field :completed, value: false %>
                 <%= f.submit "REOPEN ISSUE", class: 'submitButton' %>
-            </div>   
+            </div>
+        <% else %>   
         <% end %>
+
     <% end %>
 
 </div>

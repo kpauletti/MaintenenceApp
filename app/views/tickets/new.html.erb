@@ -21,13 +21,13 @@
 <div class='ticketContainer'>
 <%= form_for @ticket, url: { action: "create" } do |f| %>
     <div class='ticketItem'>
-        MAINTENANCE CATEGORY<br><br>
+        MAINTENANCE CATEGORY<br>
         <div class='select-style'>
-            <%= f.select :category, ['Mechanical', 'Electrical', 'Body', 'Other' ], {}, {required: 'true', autofocus: 'true' }%> 
+            <%= f.select :category, ['Mechanical', 'Electrical', 'Body', 'Wrap', 'Other' ], {}, {required: 'true', autofocus: 'true' }%> 
         </div>
     </div>
     <div class='ticketItem'>
-        CAN THE CAR DRIVE?<br><br>
+        CAN THE CAR DRIVE?<br>
         <div class='select-style'>    
             <%= f.select :driveable, [ ["Yes", true], ["No", false] ], {}, {required: 'true', autofocus: 'true' }%> 
         </div>
@@ -36,22 +36,24 @@
         <div class="image-upload">
             ADD PICTURE<br><br>
             <label for="file-input">
-            <i class="far fa-plus-square fa-3x"></i>
+            <i class="far fa-plus-square fa-2x"></i>
             </label>
             <%= f.file_field :picture, id:"file-input" %>
         </div>
 
     </div>
+        <div class='ticketItem'>
+        LOCATION<br> <%= f.text_field :location %> <br>
+    </div>
+
     <div class='ticketItem'>
         NOTES<br> <%= f.text_field :note %> <br>
     </div>
-    <div class='ticketItem'>
-        WHO WILL WORK ON THIS<br> <%= f.text_field :mechanic %>
-    </div>
+
         <%= f.hidden_field :car_id, value: params[:car_id] %>
         <%= f.hidden_field :completed, value: false %>
     <div class='submitTicketButton'>
-        <%= f.submit "SEND", class: 'submitButton' %>
+        <%= f.submit "CREATE TICKET", class: 'submitButton' %>
     </div>
 <% end %>
 </div>

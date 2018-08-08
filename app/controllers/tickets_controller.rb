@@ -7,6 +7,10 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find_by(id: params[:id])
   end
 
+  def finalize_ticket
+    @ticket = Ticket.find_by(id: params[:id])
+    @parts = Part.all
+  end
 
   def new
     @ticket = Ticket.new
@@ -15,7 +19,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
- 
+
     @ticket.save
     redirect_to todo_path
   end
@@ -24,6 +28,9 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find_by(id: params[:id])
     @ticket.update(ticket_params)
     @ticket.save
+    part = Part.find(params[:ticket][:part_used])
+    part.quantity -= 1
+    part.save
     redirect_to root_path
   end
 
@@ -32,8 +39,8 @@ class TicketsController < ApplicationController
   end
 
   private
-  def ticket_params
-    params.require(:ticket).permit(:category, :note, :picture, :driveable, :mechanic, :car_id, :completed)
-  end
 
+  def ticket_params
+    params.require(:ticket).permit(:category, :note, :picture, :driveable, :mechanic, :car_id, :completed, :part_used, :time_spent, :location)
+  end
 end
