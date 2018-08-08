@@ -1,0 +1,90 @@
+<nav class='navbar'> 
+    <%= link_to :back  do%>
+        <span class='backButton'>
+            <i class="fas fa-caret-left fa-2x"></i> 
+        </span>
+    <% end %>
+    CLOSE TICKET
+   <%= link_to(destroy_user_session_path, controller: 'sessions', method: :delete) do %>
+       <span class='navSignout'>
+           <i class="fas fa-sign-out-alt fa-2x"></i>
+       </span>
+   <% end %> 
+</nav>
+
+<h2 class="header"><%= @ticket.car.name %></h1>
+
+<% if notice %>
+    <div> <%= notice %> </div>
+<% end %>
+
+<div class="carContainer">
+    <div class='ticketItem'>
+        DESCRIPTION<br><br>   
+       <span class='wordBorder'> <%= @ticket.category %> </span>
+    </div>
+
+    <div class='ticketItem'>
+        NOTES<br><br>
+        <%= @ticket.note %>
+    </div>
+
+    <div class='ticketItem'>
+        <%= link_to @ticket.picture.url do %>
+            <div class="imageContainer">
+                PICTURE<br>
+                <% if @ticket.picture.url %>
+                    <%= image_tag @ticket.picture.url, :class => "imgPreview" %>
+                <% else %>
+                    No Picture Added
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+
+
+
+
+
+    <%= form_for @ticket, method: "patch" do |f| %>
+        <%= f.hidden_field :category, value: @ticket.category %>
+        <%= f.hidden_field :note, value: @ticket.note %>
+        <%= f.hidden_field :picture, value: @ticket.picture %>
+
+    <div class='ticketItem'>
+        PART USED<br> 
+        <div class='select-style'>
+            <%= f.select(:part_used, @parts.map{ |x| [x.name, x.id] }, {}, {required: 'false', autofocus: 'true' }) %>
+        </div>
+    </div>
+
+    <div class='ticketItem'>
+        COMPLETED BY<br> <%= f.text_field :mechanic %>
+    </div>
+
+    <div class='ticketItem'>
+        FINAL RESOLUTION<br> <%= f.text_field :final_resolution %>
+    </div>
+
+    <div class='ticketItem'>
+        TIME SPENT<br> <%= f.text_field :time_spent %>
+    </div>
+
+        <%= f.hidden_field :car_id, value: @ticket.car_id %>
+        <%= f.hidden_field :driveable, value: true %>
+        <% if request.referer.present? %>        
+            <% if URI(request.referer).path == "/tickets/#{@ticket.id}" %>
+                <div class='submitTicketButton'>
+                    <%= f.hidden_field :completed, value: true %>
+                    <%= f.submit "TICKET COMPLETED", class: 'submitButton' %>
+                </div>
+            <% elsif URI(request.referer).path == '/completed-tickets' %> 
+                <div class='submitTicketButton'>
+                    <%= f.hidden_field :completed, value: false %>
+                    <%= f.submit "REOPEN ISSUE", class: 'submitButton' %>
+                </div>   
+            <% end %>
+        <% end %>
+    <% end %>
+
+</div>

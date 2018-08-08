@@ -1,0 +1,41 @@
+<nav class='navbar'> 
+    <%= link_to :root  do%>
+        <span class='backButton'>
+            <i class="fas fa-caret-left fa-2x"></i> 
+        </span>
+    <% end %>
+    PARTS
+   <%= link_to(destroy_user_session_path, controller: 'sessions', method: :delete) do %>
+       <span class='navSignout'>
+           <i class="fas fa-sign-out-alt fa-2x"></i>
+       </span>
+   <% end %> 
+</nav>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>QTY.</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parts.each do |part| %>
+      <tr>
+        <td><%= part.name %></td>
+        <td><%= part.quantity %></td>
+        <td>
+          <%= link_to part_path(part) do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Part', new_part_path %>

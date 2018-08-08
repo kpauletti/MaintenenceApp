@@ -14,7 +14,7 @@ initialize_calendar = function() {
       selectHelper: true,
       editable: true,
       eventLimit: true,
-      googleCalendarApiKey: `<%= Rails.application.secrets.google_api_key %>`,
+      googleCalendarApiKey: `<%= ENV['GOOGLE_API_KEY'] %>`,
       eventSources: [
                 {
                   googleCalendarId: '7jiqsugob1t0kua9snlulia80g@group.calendar.google.com',
