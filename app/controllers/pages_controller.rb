@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def home
+    @tickets = Ticket.where(completed: false).order(:created_at).limit(3)
   end
 
   def todo_index
@@ -10,12 +11,8 @@ class PagesController < ApplicationController
   end
 
   def calendar
-    
   end
 
   def admin
-
   end
-  
-
 end

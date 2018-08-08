@@ -148,8 +148,8 @@ a {
 .ticketItem {
     text-align: center;
     border-bottom: 1px solid #102f5a;
-    padding-bottom: 50px;
-    margin-bottom: 20px;
+    padding-bottom: 40px;
+    margin-bottom: 15px;
     font-weight: 900;
     font-size: 24px;
     color: #102f5a;
@@ -217,6 +217,26 @@ a {
     width: 97%;
 }
 
+.homePagePriority {
+    float: left;
+    border: 1px solid #102f5a;
+    max-width: 100%;
+    min-width: 33.33%;
+    height: 80px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.ticketCarName{
+    font-size: 20px;
+    color: #102f5a;
+}
+
+.ticketCarCat {
+    font-weight: 300
+}
+
 .priorityBoxTitle {
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
@@ -224,7 +244,6 @@ a {
     text-align: center;
     background-color: #102f5a;
     color: white;
-    margin-bottom: 15px;
     padding: 5px;
 }
 
@@ -263,10 +282,11 @@ a {
 
 .wordBorder {
     color: white;
+    font-size: 17px;
     border: 2px solid #102f5a;
     border-radius: 10px;
     background-color: #102f5a;
-    padding: 10px;
+    padding: 7px;
 }
 
 .imageContainer {
@@ -451,5 +471,9 @@ a {
 
 } 
 
+.logInPage {
+    text-align: center;
+    height: 100%;
+}
     
     

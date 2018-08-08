@@ -11,52 +11,7 @@
     <img src="https://i.imgur.com/wqfPOwS.png" alt="Free Bee Logo">
 </div>
 
-<%# old style hex %>
-<% if false %>
-<div class='homeContainer'>
 
-    <%= link_to cars_path, {:style => 'text-decoration: none;', :class => "addissue"}  do %>
-        <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128">
-            <path class="issue" stroke="none" fill="#102f5a" d="M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444"></path>
-            <text x="45" y="60" fill="white">ADD</text>
-            <text x="40" y="80" fill="white">ISSUE</text>
-        </svg>
-    <% end %>
-
-    <%= link_to todo_path, {:style => 'text-decoration: none;', :class => "todolist"}  do %>
-        <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128">
-            <path class="issue" stroke="none" fill="#102f5a" d="M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444"></path>
-            <text x="27" y="53" fill="white">PRIORITY</text>
-            <text x="35" y="73" fill="white">TO-DO</text>
-            <text x="44" y="93" fill="white"> LIST </text>
-        </svg>
-    <% end %>
-
-    <%= link_to completed_tickets_path, {:style => 'text-decoration: none;', :class => "completedLog"}  do %>
-        <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128">
-            <path class="issue" stroke="none" fill="#102f5a" d="M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444"></path>
-            <text x="13" y="62" fill="white">COMPLETED </text>
-            <text x="47" y="82" fill="white"> LOG </text>
-        </svg>
-    <% end %>
-
-    <%= link_to tickets_path, {:style => 'text-decoration: none;', :class => "inventoryList"}  do %>
-        <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128">
-            <path class="issue" stroke="none" fill="#102f5a" d="M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444"></path>
-            <text x="17" y="62" fill="white">INVENTORY </text>
-            <text x="47" y="82" fill="white"> LIST </text>
-        </svg>
-    <% end %>
-
-    <%= link_to tickets_path, {:style => 'text-decoration: none;', :class => "calendar"}  do %>
-        <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128">
-            <path class="issue" stroke="none" fill="#102f5a" d="M59 2.8867513459481a10 10 0 0 1 10 0l45.425625842204 26.226497308104a10 10 0 0 1 5 8.6602540378444l0 52.452994616207a10 10 0 0 1 -5 8.6602540378444l-45.425625842204 26.226497308104a10 10 0 0 1 -10 0l-45.425625842204 -26.226497308104a10 10 0 0 1 -5 -8.6602540378444l0 -52.452994616207a10 10 0 0 1 5 -8.6602540378444"></path>
-            <text x="20" y="67" fill="white">CALENDAR </text>
-        </svg>
-    <% end %>
-
-</div>
-<% end %>
 
 <ul id="grid" class="clear">
         <li>
@@ -81,7 +36,7 @@
             <% end %>
         </li>
         <li>
-            <%= link_to tickets_path do %>
+            <%= link_to parts_path do %>
                 <div class="hexagon">
                 <p class='hexText'> INVENTORY LIST </p>
                 </div>
@@ -127,6 +82,14 @@
 
 <div class='highPriorityBox homeBox'>
     <div class='priorityBoxTitle'> HIGH PRIORITY </div>
-
-
+        <% @tickets.each do |ticket| %>
+            <%= link_to ticket_path(ticket.id) do %>
+                <div class='homePagePriority'>
+                    <span class='ticketCarName'><%= ticket.car.name %></span> <br>
+                    <span class='ticketCarCat'><%= ticket.category %></span>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
 </div>
+
