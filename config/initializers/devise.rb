@@ -10,8 +10,8 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '0880c11ff5c8741c0c79e72e21178053cce59557bf9540eb7ec993e0a7e5532acaa21d7d7f6ce589bf501dd9738bdcbcc55c7a5ee95cf36f2ef2854da6884a0a'
 
-  config.secret_key = Rails.application.credentials.secret_key_base
-
+  # config.secret_key = Rails.application.credentials.secret_key_base
+  config.secret_key = "a0b015b62bf548d492dfa93d3539f9e29aa4fef530e522793e1abb8a4a6d9264692785c3ad584087bed0ebbd735e203ca1d50bcf291cbeafcfc9269905872a7b"
   # config.secret_key = "637b360188cff826d40e931e5cc4345658a7897fc96d3a8eacd3eb7b107070bd97fe20a24f9964577287488d669c5ea1cf52258ccb4c88a3c35cb30afa341443"
 
   # ==> Controller configuration
