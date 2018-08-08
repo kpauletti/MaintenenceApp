@@ -108,7 +108,7 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hirb (0.7.3)
-    i18n (1.0.1)
+    i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
     jbuilder (2.7.0)
@@ -146,7 +146,7 @@ GEM
     public_suffix (3.0.2)
     puma (3.12.0)
     rack (2.0.5)
-    rack-test (1.0.0)
+    rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.0)
       actioncable (= 5.2.0)
@@ -244,7 +244,6 @@ DEPENDENCIES
   daemons (~> 1.2)
   delayed_job_active_record
   devise (~> 4.4)
-  dotenv (~> 2.5)
   dotenv-rails (~> 2.5)
   hirb
   jbuilder (~> 2.5)
