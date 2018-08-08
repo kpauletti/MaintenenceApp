@@ -8,19 +8,17 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = "0880c11ff5c8741c0c79e72e21178053cce59557bf9540eb7ec993e0a7e5532acaa21d7d7f6ce589bf501dd9738bdcbcc55c7a5ee95cf36f2ef2854da6884a0a"
-
-  # config.secret_key = Rails.application.credentials.secret_key_base
-  # config.secret_key = ENV["DEVISE_SECRET_KEY"]
-
+  # config.secret_key = 'df340577fd65b6484ef92652a1cd726a2d7ea979a82da595d60797ec263440d0db17b901282063a2aa6dbf7616a3b80f820847f06e0a6d946df4ca01292268ad'
+  
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -32,7 +30,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require "devise/orm/active_record"
+  require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -116,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'dd230b0a991ed0772bdb9ddbbdf629e50648dca0a7de880652b284fdaaaf79e15c76f7c4abf1084412d1b546a13c7ce87b22d19e7e6488233a25879d1277834d'
+  # config.pepper = '8f425167372aa2ab30bcf0d62da8154825ce487a71e66b279ebdce3457478bc789cd0c581444b75b11524eb8b90ed62a308fd84e312149c19df8895d01fd1cf8'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
