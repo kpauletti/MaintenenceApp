@@ -2,15 +2,19 @@
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
-    src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459WRhyzbi.woff2) format('woff2');
-    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-  }
+    src: local('Montserrat Regular'), local('Montserrat-Regular'),
+        url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459WRhyzbi.woff2)
+            format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F,
+        U+FE2E-FE2F;
+}
 
 html {
     height: 100%;
 }
-  
-html, body {
+
+html,
+body {
     font-family: 'Montserrat', sans-serif;
     min-height: 100%;
     padding: 0;
@@ -18,7 +22,7 @@ html, body {
 }
 
 .navbar {
-    display:inline-block;
+    display: inline-block;
     padding-top: 10px;
     line-height: 30px;
     margin: 0;
@@ -29,19 +33,18 @@ html, body {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     letter-spacing: 2px;
-
 }
 
 .navSignout {
     float: right;
     color: #cad94a;
-    font-size: 11px;
+    font-size: 14px;
     line-height: 0;
-    padding-top: 1%
 }
 
 .backButton {
     float: left;
+    font-size: 14px;
     color: #cad94a;
     line-height: 0;
     margin: auto;
@@ -56,14 +59,12 @@ img {
     margin-left: auto;
     margin-right: auto;
     width: 60%; /* you can use % */
-    height: auto
-
+    height: auto;
 }
 
 .addissue {
     left: 50px;
     position: absolute;
-
 }
 
 .todolist {
@@ -84,10 +85,61 @@ img {
     left: 110px;
 }
 
+#newPartButton {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.searchBar {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#search::-webkit-input-placeholder {
+    text-align: center;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #102f5a;
+}
+
+.newPart {
+    background-color: #102f5a;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
 .inventoryList {
     position: absolute;
     top: 100px;
     left: 230px;
+}
+
+.partLink {
+    padding: 2px;
+    display: flex;
+}
+
+.leftPart {
+    text-align: left;
+    width: 50%;
+    font-weight: bold;
+    color: #102f5a;
+}
+
+.rightPart {
+    text-align: right;
+    width: 50%;
+    color: #102f5a;
 }
 
 .header {
@@ -98,15 +150,65 @@ img {
     margin-bottom: 15px;
 }
 
-.carContainer, .ticketContainer {
+.searchHeader {
+    text-align: center;
+    font-weight: 600;
+    color: #102f5a;
+    margin-bottom: 10px;
+}
+
+.carContainer,
+.ticketContainer {
     border-radius: 10px;
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 10px;
     border: 2px solid #102f5a;
-    padding: 20px;  
+    padding: 20px;
     width: auto;
-    height: auto; 
+    height: auto;
+}
+
+.ticketFilter {
+    text-align: center;
+    margin-top: 24px;
+}
+
+#filter-header {
+    text-align: center;
+    color: #102f5a;
+    margin-top: 15px;
+}
+
+.filterButton {
+    background-color: #102f5a;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.filter-style {
+    border: 1px solid #ccc;
+    width: 100px;
+    margin: auto;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa no-repeat 90% 50%;
+}
+
+.filter-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.filter-style select:focus {
+    outline: none;
 }
 
 .carLink {
@@ -119,9 +221,7 @@ img {
     float: left;
     font-weight: 900;
     font-size: 24px;
-
 }
-
 
 .alignright {
     float: right;
@@ -182,12 +282,11 @@ a {
     text-align: center;
 }
 
-.image-upload > input
-{
-   display: none;
+.image-upload > label {
+    cursor: pointer;
 }
-.image-upload > label{
-  cursor:pointer;
+.image-upload > input {
+    display: none;
 }
 
 .submitButton {
@@ -198,9 +297,10 @@ a {
     padding: 14px 40px;
 }
 
-.highPriorityBox, .priorityBox {
+.highPriorityBox,
+.priorityBox {
     border-radius: 10px;
-    margin-top: 60px;
+    margin-top: 10px;
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 10px;
@@ -228,13 +328,13 @@ a {
     padding-top: 10px;
 }
 
-.ticketCarName{
+.ticketCarName {
     font-size: 20px;
     color: #102f5a;
 }
 
 .ticketCarCat {
-    font-weight: 300
+    font-weight: 300;
 }
 
 .priorityBoxTitle {
@@ -263,15 +363,12 @@ a {
     width: 33%;
     font-weight: bold;
     color: #102f5a;
-    
 }
 
 .rightDiv {
-
     text-align: right;
     width: 33%;
     color: #102f5a;
-
 }
 
 .centerDiv {
@@ -299,7 +396,6 @@ a {
     max-height: 100%;
 }
 
-
 /* NEW HEXAGONS */
 
 #grid {
@@ -310,7 +406,7 @@ a {
 }
 
 .clear:after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
 }
@@ -378,11 +474,13 @@ a {
     visibility: visible;
 }
 
-#grid li:nth-child(3n+2) {
+#grid li:nth-child(3n + 2) {
     margin: 0 1%;
-  }
+}
 
-  #grid li:nth-child(6n+4), #grid li:nth-child(6n+5), #grid li:nth-child(6n+6) {
+#grid li:nth-child(6n + 4),
+#grid li:nth-child(6n + 5),
+#grid li:nth-child(6n + 6) {
     margin-top: -6.9285714285%;
     margin-bottom: -6.9285714285%;
     -o-transform: translateX(50%) rotate(-60deg) skewY(30deg);
@@ -392,7 +490,7 @@ a {
     transform: translateX(50%) rotate(-60deg) skewY(30deg);
 }
 
-#grid li:nth-child(6n+4) { 
+#grid li:nth-child(6n + 4) {
     margin-left: 0.5%;
 }
 
@@ -410,12 +508,11 @@ a {
     -moz-transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    }
+}
 
 .hide {
     display: none;
 }
-
 
 .calendar {
     position: absolute;
@@ -424,7 +521,14 @@ a {
     height: auto;
 }
 .adminContainer {
-    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    background-image: linear-gradient(
+        to right top,
+        #051937,
+        #004d7a,
+        #008793,
+        #00bf72,
+        #a8eb12
+    );
     min-height: 800px;
 }
 
@@ -468,12 +572,9 @@ a {
     color: white; /* Text color */
 
     padding: 10px;
-
-} 
+}
 
 .logInPage {
     text-align: center;
     height: 100%;
 }
-    
-    

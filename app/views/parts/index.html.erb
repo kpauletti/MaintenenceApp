@@ -1,41 +1,34 @@
-<nav class='navbar'> 
-    <%= link_to :root  do%>
-        <span class='backButton'>
-            <i class="fas fa-caret-left fa-2x"></i> 
-        </span>
-    <% end %>
-    PARTS
-   <%= link_to(destroy_user_session_path, controller: 'sessions', method: :delete) do %>
-       <span class='navSignout'>
-           <i class="fas fa-sign-out-alt fa-2x"></i>
-       </span>
-   <% end %> 
-</nav>
+<%= render partial: 'layouts/navbar', locals: {title: "INVENTORY LIST"} %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>QTY.</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h2 class="header"> INVENTORY LIST </h2>
 
-  <tbody>
+<div id="newPartButton">
+  <%= link_to 'CREATE NEW PART', new_part_path, {class: "newPart"} %>
+</div>
+
+<hr>
+
+<h5 class="searchHeader"> SEARCH </h5>
+
+<div class="searchBar">
+  <%= form_for "", url: parts_path, method: :get do |f| %>
+    <%= f.text_field :search, placeholder: "..."%>
+  <% end %>
+</div>
+
+<hr>
+
+<div class='priorityBox'>
+    <div class='priorityBoxTitle'> INVENTORY </div>
     <% @parts.each do |part| %>
-      <tr>
-        <td><%= part.name %></td>
-        <td><%= part.quantity %></td>
-        <td>
-          <%= link_to part_path(part) do %>
-            <i class="fas fa-edit"></i>
-          <% end %>
-        </td>
-      </tr>
+        <div class='priorityTickets'>
+             <%= link_to part_path(:id => part.id) do %>
+                <div class='partLink'>
+                    <div class="leftPart"><%= part.name %></div>
+                    <div class="rightPart"><%= part.part_num %></div>
+                </div>
+            <% end %>
+        </div>
     <% end %>
-  </tbody>
-</table>
+</div>
 
-<br>
-
-<%= link_to 'New Part', new_part_path %>

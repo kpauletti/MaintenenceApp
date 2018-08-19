@@ -77,3 +77,5 @@ gem "daemons", "~> 1.2"
 gem "twilio-ruby", "~> 5.11"
 
 gem "dotenv-rails", "~> 2.5"
+
+gem "faker", "~> 1.9"

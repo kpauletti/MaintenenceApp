@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :events
   root 'pages#home'
   get '/todo' => 'pages#todo_index'
+  get 'filter' => 'pages#filter'
   get 'completed-tickets' => 'tickets#completed'
   get 'finalize' => 'tickets#finalize_ticket'
   get 'all' => 'cars#all_cars'

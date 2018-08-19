@@ -6,14 +6,43 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 30.times do |x|
+  Car.create(
+    name: "Car #{x}",
+    generation: "Gen #{x % 4 + 1}",
+  )
 
-    Car.create(
-        name: "Car #{x}",
-        generation: "Gen #{x%4+1}"
-    )
-
-    puts "Car ##{x} created.."
-
+  puts "Car ##{x} created.."
 end
+
+15.times do |x|
+  Ticket.create(
+    category: "Mechanical",
+    note: "Test Ticket",
+    location: ["Coconut Grove", "Coral Gables", "Hallandale Beach", "Key Biscayne", "Mainland", "Miami Lakes", "South Beach", "Other"].sample,
+    car_id: rand(1..20),
+    driveable: false,
+    completed: false,
+
+  )
+end
+
+15.times do |x|
+  Ticket.create(
+    category: "Mechanical",
+    note: "Test Ticket",
+    location: ["Coconut Grove", "Coral Gables", "Hallandale Beach", "Key Biscayne", "Mainland", "Miami Lakes", "South Beach", "Other"].sample,
+    car_id: rand(1..20),
+    driveable: true,
+    completed: false,
+  )
+end
+
+20.times do |x|
+  Part.create(
+    part_num: Faker::Code.isbn,
+    name: Faker::Commerce.product_name,
+  )
+end
+
+User.create!({:email => "kennethpauletti@gmail.com", :admin => true, :password => "amkawaii1", :password_confirmation => "amkawaii1"})

@@ -1,20 +1,8 @@
-<nav class='navbar'> 
-    <%= link_to :back  do%>
-        <span class='backButton'>
-            <i class="fas fa-caret-left fa-2x"></i> 
-        </span>
-    <% end %>
-    ADD ISSUE
-   <%= link_to(destroy_user_session_path, controller: 'sessions', method: :delete) do %>
-       <span class='navSignout'>
-           <i class="fas fa-sign-out-alt fa-2x"></i>
-       </span>
-   <% end %>  
-</nav>
+<%= render partial: 'layouts/navbar', locals: {title: "ADD ISSUE"} %>
 
 
 <div class='newTicketHeader'>
-    <h2 class='header'> <%= @car.name %> </h2> 
+    <h2 class='header'> <%= @car.name %> </h2>
     <p class='gen'> <%= @car.generation %> </p>
 </div>
 
@@ -23,27 +11,29 @@
     <div class='ticketItem'>
         MAINTENANCE CATEGORY<br>
         <div class='select-style'>
-            <%= f.select :category, ['Mechanical', 'Electrical', 'Body', 'Wrap', 'Other' ], {}, {required: 'true', autofocus: 'true' }%> 
+            <%= f.select :category, ['Mechanical', 'Electrical', 'Body', 'Wrap', 'Other' ], {}, {required: 'true', autofocus: 'true' }%>
         </div>
     </div>
     <div class='ticketItem'>
         CAN THE CAR DRIVE?<br>
-        <div class='select-style'>    
-            <%= f.select :driveable, [ ["Yes", true], ["No", false] ], {}, {required: 'true', autofocus: 'true' }%> 
+        <div class='select-style'>
+            <%= f.select :driveable, [ ["Yes", true], ["No", false] ], {}, {required: 'true', autofocus: 'true' }%>
         </div>
     </div>
     <div class='ticketItem'>
         <div class="image-upload">
             ADD PICTURE<br><br>
             <label for="file-input">
-            <i class="far fa-plus-square fa-2x"></i>
+                <i class="far fa-plus-square fa-2x"></i>
             </label>
             <%= f.file_field :picture, id:"file-input" %>
         </div>
 
     </div>
         <div class='ticketItem'>
-        LOCATION<br> <%= f.text_field :location %> <br>
+        LOCATION<br>
+        <div class="select-style">
+        <%= f.select :location, ['Coconut Grove', 'Coral Gables', 'Hallandale Beach', 'Key Biscayne', 'Mainland', 'Miami Lakes', 'South Beach', 'Other'], {}, {required: 'true', autofocus: 'true' } %> </div> <br>
     </div>
 
     <div class='ticketItem'>

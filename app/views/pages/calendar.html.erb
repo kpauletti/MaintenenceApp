@@ -1,16 +1,4 @@
-<nav class='navbar'> 
-    <%= link_to :root do%>
-        <span class='backButton'>
-            <i class="fas fa-caret-left fa-2x"></i> 
-        </span>
-    <% end %>
-    CALENDAR
-   <%= link_to(destroy_user_session_path, controller: 'sessions', method: :delete) do %>
-       <span class='navSignout'>
-           <i class="fas fa-sign-out-alt fa-2x"></i>
-       </span>
-   <% end %>
-</nav>
+<%= render partial: 'layouts/navbar', locals: {title: "CALENDAR"} %>
 
 
 <div class='calendar'></div> 

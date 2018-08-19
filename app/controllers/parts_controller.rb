@@ -4,7 +4,12 @@ class PartsController < ApplicationController
   # GET /parts
   # GET /parts.json
   def index
-    @parts = Part.order(:name)
+    if params[:search]
+      search_term = params[:search]
+      @parts = Part.search(search_term)
+    else
+      @parts = Part.order(:name)
+    end
   end
 
   # GET /parts/1

@@ -1,46 +1,16 @@
-<nav class='navbar'>
-   <%= link_to :root do%>
-       <span class='backButton'>
-           <i class="fas fa-caret-left fa-2x"></i>
-       </span>
-   <% end %>
-   PRIORITY TO-DO LIST
-   <%= link_to(destroy_user_session_path, controller: 'sessions', method: :delete) do %>
-       <span class='navSignout'>
-           <i class="fas fa-sign-out-alt fa-2x"></i>
-       </span>
-   <% end %>
-</nav>
-<h2 class='header'> PRIORITY TO-DO LIST </h2>
-
-<div class='highPriorityBox'>
-    <div class='priorityBoxTitle'> HIGH PRIORITY </div>
-        <% @high_priority_todo.each do |item| %>
-        <div class='priorityTickets'>
-             <%= link_to ticket_path(:id => item.id) do %>
-                <div class='ticketLink'>
-                    <div class="leftDiv"><%= item.car.name %></div>
-                    <div class="centerDiv"><%= item.category %></div>
-                    <div class="rightDiv"><%= item.car.generation %></div>
-                </div>
-            <% end %>
-        </div>
-    <% end %>
-
-</div>
+<%= render partial: 'layouts/navbar', locals: {title: "PRIORITY TO-DO LIST"} %>
 
 
-<div class='priorityBox'>
-    <div class='priorityBoxTitle'> TO-DO LIST </div>
-    <% @todo.each do |item| %>
-        <div class='priorityTickets'>
-             <%= link_to ticket_path(:id => item.id) do %>
-                <div class='ticketLink'>
-                    <div class="leftDiv"><%= item.car.name %></div>
-                    <div class="centerDiv"><%= item.category %></div>
-                    <div class="rightDiv"><%= item.car.generation %></div>
-                </div>
-            <% end %>
-        </div>
-    <% end %>
-</div>
+<%= form_for "", url: todo_path, method: :get do |f| %>
+	<div id="filter-header"> ZONE </div>
+	<div class="filter-style">
+	<%= f.select :filter, ['Coconut Grove', 'Coral Gables', 'Hallandale Beach', 'Key Biscayne', 'Mainland', 'Miami Lakes', 'South Beach', 'Other'], {
+		:include_blank => true, id: "filter" } , { onchange: 'this.form.submit();', prompt: 'Select Person' } %>
+	</div>
+<% end %>
+
+
+
+<%= render 'pages/todo' %>
+
+

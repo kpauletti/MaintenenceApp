@@ -1,16 +1,4 @@
-<nav class='navbar'> 
-    <%= link_to :back  do%>
-        <span class='backButton'>
-            <i class="fas fa-caret-left fa-2x"></i> 
-        </span>
-    <% end %>
-    CLOSE TICKET
-   <%= link_to(destroy_user_session_path, controller: 'sessions', method: :delete) do %>
-       <span class='navSignout'>
-           <i class="fas fa-sign-out-alt fa-2x"></i>
-       </span>
-   <% end %> 
-</nav>
+<%= render partial: 'layouts/navbar', locals: {title: "CLOSE TICKET"} %>
 
 <h2 class="header"><%= @ticket.car.name %></h1>
 

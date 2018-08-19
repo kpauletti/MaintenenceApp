@@ -1,32 +1,21 @@
-<nav class='navbar'> 
-    <%= link_to :back do%>
-        <span class='backButton'>
-            <i class="fas fa-caret-left fa-2x"></i> 
-        </span>
-    <% end %>
-    <%= @car.name %>
-   <%= link_to(destroy_user_session_path, controller: 'sessions', method: :delete) do %>
-       <span class='navSignout'>
-           <i class="fas fa-sign-out-alt fa-2x"></i>
-       </span>
-   <% end %> 
-</nav>
+<%= render partial: 'layouts/navbar', locals: {title: @car.name} %>
 
 <h2 class="header"> OPEN ISSUES </h2>
 
- 
+
 <div class='carContainer'>
- <% if @car.tickets.present? %>
-     <h3> OPEN ISSUES </h3>
-        <%if @car.tickets.one? %>
-        ONE TICKET
-        <% else @car.tickets.each do |ticket|%>
-            ticket
+        <% @car.tickets.each do |ticket| %>
+            <%= link_to ticket_path(:ticket_id => ticket.id) do %>
+                <div class='carLink'>
+                    <p class="alignleft"> <%= ticket.category %> </p>
+                    <p class="alignright"> 
+                        <% if ticket.completed == true %>
+                            COMPLETED
+                            <% else %>
+                            NOT COMPLETED
+                        <% end %>
+                    </p>
+                </div>
+            <% end %>
         <% end %>
-        <% end %>
-        <% else %>
-        <h3> NO ISSUES </h3>
-
-<% end %>
-
 </div>

@@ -1,0 +1,31 @@
+<div class='highPriorityBox'>
+    <div class='priorityBoxTitle'> HIGH PRIORITY </div>
+        <% @high_priority_todo.each do |item| %>
+        <div class='priorityTickets'>
+             <%= link_to ticket_path(:id => item.id) do %>
+                <div class='ticketLink'>
+                    <div class="leftDiv"><%= item.car.name %></div>
+                    <div class="centerDiv"><%= item.category %></div>
+                    <div class="rightDiv"><%= item.car.generation %></div>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+
+</div>
+
+
+<div class='priorityBox'>
+    <div class='priorityBoxTitle'> TO-DO LIST </div>
+    <% @todo.each do |item| %>
+        <div class='priorityTickets'>
+             <%= link_to ticket_path(:id => item.id) do %>
+                <div class='ticketLink'>
+                    <div class="leftDiv"><%= item.car.name %></div>
+                    <div class="centerDiv"><%= item.category %></div>
+                    <div class="rightDiv"><%= item.car.generation %></div>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>
