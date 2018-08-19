@@ -45,4 +45,4 @@ end
   )
 end
 
-User.create!({:email => "kennethpauletti@gmail.com", :admin => true, :password => "amkawaii1", :password_confirmation => "amkawaii1"})
+User.create!({:email => "kennethpauletti@gmail.com", :admin => true, :password => "password", :password_confirmation => "password"})
