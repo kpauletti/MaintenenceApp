@@ -5,7 +5,7 @@
 
 <div class='carContainer'>
         <% @car.tickets.each do |ticket| %>
-            <%= link_to ticket_path(:ticket_id => ticket.id) do %>
+            <%= link_to ticket_path(:id => ticket.id) do %>
                 <div class='carLink'>
                     <p class="alignleft"> <%= ticket.category %> </p>
                     <p class="alignright"> 

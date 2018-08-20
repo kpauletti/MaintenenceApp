@@ -28,6 +28,9 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find_by(id: params[:id])
     @ticket.update(ticket_params)
     @ticket.save
+    if (@ticket.completed == true)
+      @ticket.notify
+    end
     if (params[:ticket][:part_used] && params[:ticket][:part_used].length > 1)
       part = Part.find(params[:ticket][:part_used])
       part.quantity -= 1
