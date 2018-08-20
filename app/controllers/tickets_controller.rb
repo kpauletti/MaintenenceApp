@@ -37,7 +37,11 @@ class TicketsController < ApplicationController
   end
 
   def completed
-    @completed = Ticket.where(completed: true)
+    if params[:filter]
+      @completed = Ticket.where(completed: true, location: params[:filter])
+    else
+      @completed = Ticket.where(completed: true)
+    end
   end
 
   private

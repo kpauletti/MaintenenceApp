@@ -1,6 +1,13 @@
 <%= render partial: 'layouts/navbar', locals: {title: "COMPLETED"} %>
 
-<h2 class="header">   </h2>
+
+<%= form_for "", url: completed_tickets_path, method: :get do |f| %>
+	<div id="filter-header"> ZONE </div>
+	<div class="filter-style">
+	<%= f.select :filter, ['Coconut Grove', 'Coral Gables', 'Hallandale Beach', 'Key Biscayne', 'Mainland', 'Miami Lakes', 'South Beach', 'Other'], {
+		:include_blank => true, id: "filter" } , { onchange: 'this.form.submit();', prompt: 'Select Person' } %>
+	</div>
+<% end %>
 
 <div class='priorityBox'>
     <div class='priorityBoxTitle'> COMPLETED TICKETS </div>
