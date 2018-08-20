@@ -39,12 +39,12 @@
     <%= form_for @ticket, method: "patch" do |f| %>
         <%= f.hidden_field :category, value: @ticket.category %>
         <%= f.hidden_field :note, value: @ticket.note %>
-        <%= f.hidden_field :picture, value: @ticket.picture %>
+        <%= f.hidden_field :pictures, value: @ticket.pictures %>
 
     <div class='ticketItem'>
         PART USED<br> 
         <div class='select-style'>
-            <%= f.select(:part_used, @parts.map{ |x| [x.name, x.id] }, {}, {required: 'false', autofocus: 'true' }) %>
+            <%= f.select(:part_used, @parts.map{ |x| [x.name, x.id] }, {:include_blank => true}) %>
         </div>
     </div>
 
@@ -62,19 +62,18 @@
 
         <%= f.hidden_field :car_id, value: @ticket.car_id %>
         <%= f.hidden_field :driveable, value: true %>
-        <% if request.referer.present? %>        
-            <% if URI(request.referer).path == "/tickets/#{@ticket.id}" %>
-                <div class='submitTicketButton'>
-                    <%= f.hidden_field :completed, value: true %>
-                    <%= f.submit "TICKET COMPLETED", class: 'submitButton' %>
-                </div>
-            <% elsif URI(request.referer).path == '/completed-tickets' %> 
-                <div class='submitTicketButton'>
-                    <%= f.hidden_field :completed, value: false %>
-                    <%= f.submit "REOPEN ISSUE", class: 'submitButton' %>
-                </div>   
+        <% if @ticket.completed == false %>
+            <div class='submitTicketButton'>
+                 <%= f.hidden_field :completed, value: true %>
+                <%= f.submit "CLOSE TICKET", class: 'submitButton' %>
+            </div>
+        <% elsif @ticket.completed == true %>
+            <div class='submitTicketButton'>
+                <%= f.hidden_field :completed, value: false %>
+                <%= f.submit "REOPEN ISSUE", class: 'submitButton' %>
+            </div>
+        <% else %>
             <% end %>
         <% end %>
-    <% end %>
 
 </div>

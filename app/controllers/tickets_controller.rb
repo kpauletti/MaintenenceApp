@@ -28,9 +28,11 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find_by(id: params[:id])
     @ticket.update(ticket_params)
     @ticket.save
-    part = Part.find(params[:ticket][:part_used])
-    part.quantity -= 1
-    part.save
+    if (params[:ticket][:part_used] && params[:ticket][:part_used].length > 1)
+      part = Part.find(params[:ticket][:part_used])
+      part.quantity -= 1
+      part.save
+    end
     redirect_to root_path
   end
 
