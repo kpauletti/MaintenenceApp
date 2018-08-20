@@ -578,3 +578,25 @@ a {
     text-align: center;
     height: 100%;
 }
+
+.formContainer {
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    border: 2px solid #102f5a;
+    padding: 20px;
+    width: auto;
+    height: auto;
+}
+
+.doneButton {
+    text-align: center;
+}
+
+#done {
+    color: #102f5a;
+    border-radius: 8px;
+    font-weight: bold;
+    padding: 14px 40px;
+}

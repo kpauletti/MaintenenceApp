@@ -1,5 +1,8 @@
-<h1>New Part</h1>
+<%= render partial: 'layouts/navbar', locals: {title: "INVENTORY LIST"} %>
+
+<h3 class="header"> ADD NEW PART </h3>
+
+
 
 <%= render 'form', part: @part %>
 
-<%= link_to 'Back', parts_path %>

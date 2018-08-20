@@ -1,37 +1,39 @@
-<%= form_with(model: part, local: true) do |form| %>
-  <% if part.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(part.errors.count, "error") %> prohibited this part from being saved:</h2>
+<div class="formContainer">
+  <%= form_with(model: part, local: true) do |form| %>
+    <% if part.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(part.errors.count, "error") %> prohibited this part from being saved:</h2>
 
-      <ul>
-      <% part.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% part.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="ticketItem">
+      NAME
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="ticketItem">
+      PART NUMBER
+      <%= form.text_field :part_num %>
+    </div>
+
+    <div class="ticketItem">
+      QUANTITY <br>
+      <%= form.select(:quantity, (0..50).map {|i| [i,i]} ) %>
+    </div>
+
+    <div class="ticketItem">
+      DESCRIPTION
+      <%= form.text_field :description %>
+    </div>
+
+    <div class="doneButton">
+      <%= form.submit "DONE", id: "done" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :part_num %>
-    <%= form.text_field :part_num %>
-  </div>
-
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.select(:quantity, (0..50).map {|i| [i,i]} ) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
