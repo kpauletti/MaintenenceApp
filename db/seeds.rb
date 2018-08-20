@@ -15,28 +15,28 @@
   puts "Car ##{x} created.."
 end
 
-15.times do |x|
-  Ticket.create(
-    category: "Mechanical",
-    note: "Test Ticket",
-    location: ["Coconut Grove", "Coral Gables", "Hallandale Beach", "Key Biscayne", "Mainland", "Miami Lakes", "South Beach", "Other"].sample,
-    car_id: rand(1..20),
-    driveable: false,
-    completed: false,
+# 15.times do |x|
+#   Ticket.create(
+#     category: "Mechanical",
+#     note: "Test Ticket",
+#     location: ["Coconut Grove", "Coral Gables", "Hallandale Beach", "Key Biscayne", "Mainland", "Miami Lakes", "South Beach", "Other"].sample,
+#     car_id: rand(1..20),
+#     driveable: false,
+#     completed: false,
 
-  )
-end
+#   )
+# end
 
-15.times do |x|
-  Ticket.create(
-    category: "Mechanical",
-    note: "Test Ticket",
-    location: ["Coconut Grove", "Coral Gables", "Hallandale Beach", "Key Biscayne", "Mainland", "Miami Lakes", "South Beach", "Other"].sample,
-    car_id: rand(1..20),
-    driveable: true,
-    completed: false,
-  )
-end
+# 15.times do |x|
+#   Ticket.create(
+#     category: "Mechanical",
+#     note: "Test Ticket",
+#     location: ["Coconut Grove", "Coral Gables", "Hallandale Beach", "Key Biscayne", "Mainland", "Miami Lakes", "South Beach", "Other"].sample,
+#     car_id: rand(1..20),
+#     driveable: true,
+#     completed: false,
+#   )
+# end
 
 20.times do |x|
   Part.create(

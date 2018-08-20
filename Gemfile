@@ -79,3 +79,7 @@ gem "twilio-ruby", "~> 5.11"
 gem "dotenv-rails", "~> 2.5"
 
 gem "faker", "~> 1.9"
+
+gem "fog-aws", "~> 3.0"
+
+# gem "fog", "~> 0.7.2"

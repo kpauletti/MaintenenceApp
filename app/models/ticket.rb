@@ -1,6 +1,7 @@
-require 'carrierwave'
-class Ticket < ApplicationRecord
-  belongs_to :car;
+require "carrierwave"
 
-  mount_uploader :picture, PictureUploader;
+class Ticket < ApplicationRecord
+  belongs_to :car
+
+  mount_uploaders :pictures, PictureUploader
 end

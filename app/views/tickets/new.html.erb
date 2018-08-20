@@ -22,12 +22,16 @@
     </div>
     <div class='ticketItem'>
         <div class="image-upload">
-            ADD PICTURE<br><br>
-            <label for="file-input">
+           ADD PICTURE<br><br>
+ <!--            <label for="file-input">
                 <i class="far fa-plus-square fa-2x"></i>
             </label>
-            <%= f.file_field :picture, id:"file-input" %>
+            <%= f.file_field :picture, multiple: true, id:"file-input" %>
+
+-->
+            <%= f.file_field :pictures, multiple: true %>
         </div>
+
 
     </div>
         <div class='ticketItem'>

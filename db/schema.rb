@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_06_172304) do
+ActiveRecord::Schema.define(version: 2018_08_20_131440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2018_08_06_172304) do
   create_table "tickets", force: :cascade do |t|
     t.string "category"
     t.string "note"
-    t.string "picture"
     t.boolean "driveable"
     t.string "mechanic"
     t.boolean "completed"
@@ -70,6 +69,7 @@ ActiveRecord::Schema.define(version: 2018_08_06_172304) do
     t.text "final_resolution"
     t.string "time_spent"
     t.string "part_used"
+    t.json "pictures"
     t.index ["car_id"], name: "index_tickets_on_car_id"
   end
 

@@ -18,16 +18,18 @@
     </div>
 
     <div class='ticketItem'>
-        <%= link_to @ticket.picture.url do %>
-            <div class="imageContainer">
-                PICTURE<br>
-                <% if @ticket.picture.url %>
-                    <%= image_tag @ticket.picture.url, :class => "imgPreview" %>
-                <% else %>
-                    No Picture Added
+        <div class="imageContainer">
+            PICTURES<br>
+            <% if @ticket.pictures %>
+            <div class="picContainer">
+                <% @ticket.pictures.length.times do |x|%>
+                    <%= image_tag @ticket.pictures[x].url, :class => "imgPreview" %>
                 <% end %>
             </div>
-        <% end %>
+            <% else %>
+                No Picture Added
+            <% end %>
+        </div>
     </div>
 
 

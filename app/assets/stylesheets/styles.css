@@ -285,8 +285,14 @@ a {
 .image-upload > label {
     cursor: pointer;
 }
-.image-upload > input {
+/* .image-upload > input {
     display: none;
+} */
+
+.picContainer img {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
 }
 
 .submitButton {

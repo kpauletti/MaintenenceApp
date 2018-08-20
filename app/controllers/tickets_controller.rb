@@ -41,6 +41,6 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:category, :note, :picture, :driveable, :mechanic, :car_id, :completed, :part_used, :time_spent, :location)
+    params.require(:ticket).permit(:category, :note, {pictures: []}, :driveable, :mechanic, :car_id, :completed, :part_used, :time_spent, :location)
   end
 end
