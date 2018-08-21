@@ -2,60 +2,11 @@
 
 
 <h2 class="header"><%= @ticket.car.name %></h1>
-<% if notice %>
-<div> <%= notice %> </div>
+
+<% if @ticket.completed == false %>
+    <%= render 'notcompleted' %>
+<% elsif @ticket.completed == true %>
+    <%= render 'completed' %>
 <% end %>
-<div class="carContainer">
-    <div class='ticketItem'>
-        DESCRIPTION<br><br>
-        <span class='wordBorder'> <%= @ticket.category %> </span>
-    </div>
-    <div class='ticketItem'>
-        NOTES<br>
-        <span class='ticketText'>
-            <%= @ticket.note %>
-        </span>
-    </div>
-        <div class='ticketItem'>
-        LOCATION<br>
-        <span class='ticketText'>
-            <%= @ticket.location %>
-        </span>
-    </div>
-    <div class='ticketItem'>
-        <div class="imageContainer">
-            PICTURES<br>
-            <% if @ticket.pictures %>
-            <div class="picContainer">
-                <% @ticket.pictures.length.times do |x|%>
-                    <%= image_tag @ticket.pictures[x].url, :class => "imgPreview" %>
-                <% end %>
-            </div>
-            <% else %>
-                No Picture Added
-            <% end %>
-        </div>
-    </div>
-    <%= form_for @ticket, method: "patch" do |f| %>
-    <%= f.hidden_field :category, value: @ticket.category %>
-    <%= f.hidden_field :note, value: @ticket.note %>
-    <%= f.hidden_field :pictures, value: @ticket.pictures %>
-    <%= f.hidden_field :mechanic, value: @ticket.mechanic %>
-    <%= f.hidden_field :car_id, value: @ticket.car_id %>
-    <%= f.hidden_field :driveable, value: true %>
-    <% if @ticket.completed == false %>
-    <div class='submitTicketButton'>
-        <%= link_to finalize_path(:id => @ticket.id) do %>
-        <span style="text-decoration: none;" class='submitButton'>CLOSE TICKET</span>
-        <% end %>
-    </div>
-    <% elsif @ticket.completed == true %>
-    <div class='submitTicketButton'>
-        <%= f.hidden_field :completed, value: false %>
-        <%= f.submit "REOPEN ISSUE", class: 'submitButton' %>
-    </div>
-    <% else %>
-    <% end %>
-    <% end %>
-</div>
+
 

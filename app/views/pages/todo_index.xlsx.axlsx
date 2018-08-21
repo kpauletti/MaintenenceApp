@@ -1,0 +1,11 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Tickets") do |sheet|
+  # this is the head row of your spreadsheet
+  sheet.add_row %w(category note location)
+
+  # each user is a row on your spreadsheet
+  @data.each do |ticket|
+    sheet.add_row [ticket.category, ticket.note, ticket.location]
+  end
+end

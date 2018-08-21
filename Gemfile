@@ -83,3 +83,8 @@ gem "faker", "~> 1.9"
 gem "fog-aws", "~> 3.0"
 
 # gem "fog", "~> 0.7.2"
+gem 'rubyzip'
+gem 'zip-zip'
+gem 'axlsx', '~> 2.0'
+gem 'acts_as_xlsx'
+gem 'axlsx_rails'

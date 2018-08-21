@@ -285,6 +285,23 @@ a {
 .image-upload > label {
     cursor: pointer;
 }
+
+/* #file {
+    display: none;
+} */
+
+.input-label {
+    background: #009688;
+    color: #fafafa;
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 15px;
+}
+
+/* .fa-upload {
+    margin-right: 10px;
+} */
+
 /* .image-upload > input {
     display: none;
 } */

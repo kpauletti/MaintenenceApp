@@ -1,0 +1,70 @@
+<div class="carContainer">
+    <div class='ticketItem'>
+        DESCRIPTION<br><br>
+        <span class='wordBorder'> <%= @ticket.category %> </span>
+    </div>
+    <div class='ticketItem'>
+        NOTES<br>
+        <span class='ticketText'>
+            <%= @ticket.note %>
+        </span>
+    </div>
+    <div class='ticketItem'>
+        LOCATION<br>
+        <span class='ticketText'>
+            <%= @ticket.location %>
+        </span>
+    </div>
+    <div class='ticketItem'>
+        <div class="imageContainer">
+            PICTURES<br>
+            <% if @ticket.pictures %>
+            <div class="picContainer">
+                <% @ticket.pictures.length.times do |x|%>
+                    <%= link_to @ticket.pictures[x].url do %>
+                        <%= image_tag @ticket.pictures[x].url, :class => "imgPreview" %>
+                    <% end %>
+                <% end %>
+            </div>
+            <% else %>
+                No Picture Added
+            <% end %>
+        </div>
+    </div>
+    <div class='ticketItem'>
+        COMPLETED BY<br>
+        <span class='ticketText'>
+            <%= @ticket.mechanic %> <br>
+            <%= @ticket.updated_at.to_formatted_s(:long_ordinal)%>
+        </span>
+    </div>
+    <div class='ticketItem'>
+        TIME SPENT<br>
+        <span class='ticketText'>
+            <%= @ticket.time_spent %> <br>
+        </span>
+    </div>
+    <% if(@ticket.part_used != '' && @ticket.part_used)%>
+        <div class='ticketItem'>
+            PART USED<br>
+            <span class='ticketText'>
+                <%= Part.find(@ticket.part_used).name %>
+            </span>
+        </div>
+    <% end %>
+
+    <%= form_for @ticket, method: "patch" do |f| %>
+    <%= f.hidden_field :category, value: @ticket.category %>
+    <%= f.hidden_field :note, value: @ticket.note %>
+    <%= f.hidden_field :pictures, value: @ticket.pictures %>
+    <%= f.hidden_field :mechanic, value: @ticket.mechanic %>
+    <%= f.hidden_field :car_id, value: @ticket.car_id %>
+    <%= f.hidden_field :driveable, value: true %>
+
+    <div class='submitTicketButton'>
+        <%= f.hidden_field :completed, value: false %>
+        <%= f.submit "REOPEN ISSUE", class: 'submitButton' %>
+    </div>
+
+    <% end %>
+</div>

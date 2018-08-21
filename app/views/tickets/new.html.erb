@@ -24,7 +24,10 @@
         <div class="image-upload">
            ADD PICTURE<br><br>
             <div class="fileField">
-            <%= f.file_field :pictures, multiple: true %>
+            <%# <label for="file" class="input-label">
+            <i class="fa fa-upload"></i> <span class="label-span">ADD PHOTOS</span>
+            </label> %>
+            <%= f.file_field :pictures, multiple: true, id: "file" %>
             </div>
         </div>
 

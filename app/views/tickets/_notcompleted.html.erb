@@ -1,0 +1,41 @@
+<div class="carContainer">
+    <div class='ticketItem'>
+        DESCRIPTION<br><br>
+        <span class='wordBorder'> <%= @ticket.category %> </span>
+    </div>
+    <div class='ticketItem'>
+        NOTES<br>
+        <span class='ticketText'>
+            <%= @ticket.note %>
+        </span>
+    </div>
+        <div class='ticketItem'>
+        LOCATION<br>
+        <span class='ticketText'>
+            <%= @ticket.location %>
+        </span>
+    </div>
+    <div class='ticketItem'>
+        <div class="imageContainer">
+            PICTURES<br>
+            <% if @ticket.pictures %>
+            <div class="picContainer">
+                <% @ticket.pictures.length.times do |x|%>
+                    <%= link_to @ticket.pictures[x].url do %>
+                        <%= image_tag @ticket.pictures[x].url, :class => "imgPreview" %>
+                    <% end %>
+                <% end %>
+            </div>
+            <% else %>
+                No Picture Added
+            <% end %>
+        </div>
+    </div>
+
+    <div class='submitTicketButton'>
+        <%= link_to finalize_path(:id => @ticket.id,:start_time => Time.now ) do %>
+        <span style="text-decoration: none;" class='submitButton'>START WORKING</span>
+        <% end %>
+    </div>
+
+</div>
