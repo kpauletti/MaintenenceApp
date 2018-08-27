@@ -8,8 +8,13 @@ class TicketsController < ApplicationController
   end
 
   def finalize_ticket
+    if params[:in_progress] == "true"
+      ticket = Ticket.find_by(id: params[:id])
+      ticket.in_progress = true
+      ticket.save
+    end
     @ticket = Ticket.find_by(id: params[:id])
-    @parts = Part.all
+    @parts = Part.order(:name)
   end
 
   def new
@@ -50,6 +55,6 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:category, :note, {pictures: []}, :driveable, :mechanic, :car_id, :completed, :part_used, :time_spent, :location)
+    params.require(:ticket).permit(:category, :note, {pictures: []}, :driveable, :mechanic, :car_id, :completed, :part_used, :time_spent, :location, :in_progress)
   end
 end

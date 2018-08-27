@@ -6,12 +6,15 @@ class PagesController < ApplicationController
   end
 
   def todo_index
-    if params[:filter]
-      @todo = Ticket.where(completed: false, driveable: true, location: params[:filter])
-      @high_priority_todo = Ticket.where(completed: false, driveable: false, location: params[:filter])
+    if params[:filter] && params[:filter] != "All"
+      @todo = Ticket.where(completed: false, driveable: true, location: params[:filter]).order(created_at: :asc)
+      @high_priority_todo = Ticket.where(completed: false, driveable: false, location: params[:filter]).order(created_at: :asc)
+    elsif params[:filter] == "All"
+      @todo = Ticket.where(completed: false, driveable: true).order(created_at: :asc)
+      @high_priority_todo = Ticket.where(completed: false, driveable: false).order(created_at: :asc)
     else
-      @todo = Ticket.where(completed: false, driveable: true)
-      @high_priority_todo = Ticket.where(completed: false, driveable: false)
+      @todo = Ticket.where(completed: false, driveable: true).order(created_at: :asc)
+      @high_priority_todo = Ticket.where(completed: false, driveable: false).order(created_at: :asc)
     end
 
     @data = @todo + @high_priority_todo

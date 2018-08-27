@@ -38,12 +38,7 @@
             <%= @ticket.updated_at.to_formatted_s(:long_ordinal)%>
         </span>
     </div>
-    <div class='ticketItem'>
-        TIME SPENT<br>
-        <span class='ticketText'>
-            <%= @ticket.time_spent %> <br>
-        </span>
-    </div>
+
     <% if(@ticket.part_used != '' && @ticket.part_used)%>
         <div class='ticketItem'>
             PART USED<br>

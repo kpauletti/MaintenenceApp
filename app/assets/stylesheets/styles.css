@@ -623,3 +623,20 @@ a {
     font-weight: bold;
     padding: 14px 40px;
 }
+
+.red {
+    background-color: #f44242;
+}
+.green {
+    background-color: #00bf72;
+}
+
+.final {
+    background-color: #102f5a;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    padding: 14px 14px;
+    width: 45%;
+    text-align: center;
+}

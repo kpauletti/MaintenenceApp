@@ -25,7 +25,11 @@
              <%= link_to part_path(:id => part.id) do %>
                 <div class='partLink'>
                     <div class="leftPart"><%= part.name %></div>
-                    <div class="rightPart"><%= part.part_num %></div>
+                    <% if(part.quantity > 0)%>
+                        <div class="rightPart"><%= part.quantity %> in stock</div>
+                    <% else %>
+                        <div class="rightPart"><span class="red">Out of stock</span></div>
+                    <% end %>
                 </div>
             <% end %>
         </div>

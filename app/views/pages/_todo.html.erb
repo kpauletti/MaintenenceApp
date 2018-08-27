@@ -2,12 +2,22 @@
     <div class='priorityBoxTitle'> HIGH PRIORITY </div>
         <% @high_priority_todo.each do |item| %>
         <div class='priorityTickets'>
+             <% if(item.in_progress) == true %>
+             <%= link_to finalize_path(:id => item.id) do %>
+                <div class='ticketLink green'>
+                    <div class="leftDiv"><%= item.car.name %></div>
+                    <div class="centerDiv"><%= item.category %></div>
+                    <div class="rightDiv"><%= item.car.generation %></div>
+                </div>
+                <% end %>
+                <% else %>
              <%= link_to ticket_path(:id => item.id) do %>
                 <div class='ticketLink'>
                     <div class="leftDiv"><%= item.car.name %></div>
                     <div class="centerDiv"><%= item.category %></div>
                     <div class="rightDiv"><%= item.car.generation %></div>
                 </div>
+            <% end %>
             <% end %>
         </div>
     <% end %>
@@ -19,12 +29,22 @@
     <div class='priorityBoxTitle'> TO-DO LIST </div>
     <% @todo.each do |item| %>
         <div class='priorityTickets'>
+             <% if(item.in_progress) == true %>
+             <%= link_to finalize_path(:id => item.id) do %>
+                <div class='ticketLink green'>
+                    <div class="leftDiv"><%= item.car.name %></div>
+                    <div class="centerDiv"><%= item.category %></div>
+                    <div class="rightDiv"><%= item.car.generation %></div>
+                </div>
+                <% end %>
+                <% else %>
              <%= link_to ticket_path(:id => item.id) do %>
                 <div class='ticketLink'>
                     <div class="leftDiv"><%= item.car.name %></div>
                     <div class="centerDiv"><%= item.category %></div>
                     <div class="rightDiv"><%= item.car.generation %></div>
                 </div>
+            <% end %>
             <% end %>
         </div>
     <% end %>

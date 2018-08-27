@@ -38,11 +38,26 @@ end
   )
 end
 
-20.times do |x|
+# 20.times do |x|
+#   Part.create(
+#     part_num: Faker::Code.isbn,
+#     name: Faker::Commerce.product_name,
+#     quantity: 10,
+#   )
+# end
+
+require "csv"
+
+csv_text = File.read("/home/kp/Desktop/inv.csv")
+csv = CSV.parse(csv_text, :headers => true, :encoding => "ISO-8859-1")
+csv.each do |row|
   Part.create(
-    part_num: Faker::Code.isbn,
-    name: Faker::Commerce.product_name,
+    name: row["DESCRIPTION"],
+    part_num: row["PART NUMBER"],
+    quantity: 10,
   )
+
+  p "Part entered.."
 end
 
 User.create!({:email => "kennethpauletti@gmail.com", :admin => true, :password => "password", :password_confirmation => "password"})

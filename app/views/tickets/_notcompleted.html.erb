@@ -33,7 +33,7 @@
     </div>
 
     <div class='submitTicketButton'>
-        <%= link_to finalize_path(:id => @ticket.id,:start_time => Time.now ) do %>
+        <%= link_to finalize_path(:id => @ticket.id,:start_time => Time.now, :in_progress => true ) do %>
         <span style="text-decoration: none;" class='submitButton'>START WORKING</span>
         <% end %>
     </div>

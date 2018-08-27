@@ -33,18 +33,15 @@
     </div>
 
 
-
-
-
     <%= form_for @ticket, method: "patch" do |f| %>
         <%= f.hidden_field :category, value: @ticket.category %>
         <%= f.hidden_field :note, value: @ticket.note %>
         <%= f.hidden_field :pictures, value: @ticket.pictures %>
 
     <div class='ticketItem'>
-        PART USED<br> 
+        PART USED<br>
         <div class='select-style'>
-            <%= f.select(:part_used, @parts.map{ |x| [x.name, x.id] }, {:include_blank => true}) %>
+            <%= f.select(:part_used, @parts.map{ |x| [x.name, x.id] if x.quantity != nil && x.quantity > 0  }, {:include_blank => true}) %>
         </div>
     </div>
 
@@ -57,21 +54,21 @@
     </div>
 
 
-        <%= f.hidden_field :time_spent, value: distance_of_time_in_words(Time.now, params[:start_time])%>
+        <%# f.hidden_field :time_spent, value: distance_of_time_in_words(Time.now, params[:start_time])%>
         <%= f.hidden_field :car_id, value: @ticket.car_id %>
         <%= f.hidden_field :driveable, value: true %>
-        <% if @ticket.completed == false %>
-            <div class='submitTicketButton'>
-                 <%= f.hidden_field :completed, value: true %>
-                <%= f.submit "CLOSE TICKET", class: 'submitButton' %>
+
+            <div class="submitTicketButton">
+                <%= f.hidden_field :completed, value: true %>
+                <%= f.submit "JOB COMPLETE", class: 'submitButton final' %>
+                <% end %>
+
+
+                <%= form_for @ticket, method: "patch" do |d| %>
+                <%= d.hidden_field :in_progress, value: false %>
+                <%= d.submit "PAUSE JOB", class: 'submitButton final' %>
+                <% end %>
             </div>
-        <% elsif @ticket.completed == true %>
-            <div class='submitTicketButton'>
-                <%= f.hidden_field :completed, value: false %>
-                <%= f.submit "REOPEN ISSUE", class: 'submitButton' %>
-            </div>
-        <% else %>
-            <% end %>
-        <% end %>
+
 
 </div>

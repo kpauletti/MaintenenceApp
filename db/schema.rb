@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_131440) do
+ActiveRecord::Schema.define(version: 2018_08_21_220621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_131440) do
     t.string "time_spent"
     t.string "part_used"
     t.json "pictures"
+    t.boolean "in_progress"
     t.index ["car_id"], name: "index_tickets_on_car_id"
   end
 
