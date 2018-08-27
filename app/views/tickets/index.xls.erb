@@ -1,0 +1,27 @@
+<table border='1'>
+<tr>
+  <th> Name </th>
+  <th> Category </th>
+  <th> Location </th>
+  <th> Created On </th>
+  <th> Note </th>
+  <th> Completed </th>
+  <th> Mechanic </th>
+  <th> Part used </th>
+  <th> Final Resolution </th>
+</tr>
+<% @tickets.each do |ticket| %>
+  <tr>
+    <td> <%= ticket.car.name %> </td>
+    <td> <%= ticket.category %> </td>
+    <td> <%= ticket.location %> </td>
+    <td> <%= ticket.created_at %> </td>
+    <td> <%= ticket.note %> </td>
+    <td> <%= ticket.completed %> </td>
+    <td> <%= ticket.mechanic %> </td>
+    <td> <%= ticket.part_used %> </td>
+    <td> <%= ticket.final_resolution %> </td>
+  </tr>
+<% end %>
+
+</table>

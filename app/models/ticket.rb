@@ -2,8 +2,12 @@ require "carrierwave"
 
 class Ticket < ApplicationRecord
   belongs_to :car
-
   mount_uploaders :pictures, PictureUploader
+
+  scope :category, -> (category) { where category: category }
+  scope :location, -> (location) { where location: location }
+  scope :completed, -> (completed) { where completed: completed }
+  scope :car, -> (car) { where car_id: car }
 
   def notify
     @admin_list = YAML.load_file("config/administrators.yml")

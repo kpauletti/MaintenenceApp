@@ -1,0 +1,45 @@
+<%= render partial: 'layouts/navbar', locals: {title: "REPORTS"} %>
+
+<div style="text-align:center">
+
+<h3 classs='header'> SEARCH </h3> 
+<hr>
+
+  <%= form_for "", url: tickets_path, method: :get do |f| %>
+
+    <div>
+    <%= f.label "Car "%> <br>
+    <%= f.select(:car, @cars.map{ |x| [x.name, x.id] }, {:include_blank => true}) %>
+    </div>
+
+    <div>
+    <%= f.label "Category "%> <br>
+     <%= f.select :category,
+     ['Mechanical', 'Electrical', 'Body', 'Wrap', 'Other' ],
+     {:include_blank => true},
+     {}%>
+
+    </div>
+    <div>
+     <%= f.label "Location "%> <br>
+     <%= f.select :location,
+     ['All','Coconut Grove', 'Coral Gables', 'Hallandale Beach', 'Key Biscayne', 'Mainland', 'Miami Lakes', 'South Beach', 'Other'],
+     {:include_blank => true} ,
+     {} %>
+
+    </div>
+    <div>
+    <%= f.label "Completed "%> <br>
+     <%= f.select :completed,
+     [true , false],
+     {:include_blank => true} ,
+     {} %>
+     <div>
+     <br>
+    <%= f.submit 'SEARCH' %>
+     </div>
+
+    </div>
+
+  <% end %>
+</div>

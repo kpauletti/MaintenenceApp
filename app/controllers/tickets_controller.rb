@@ -1,6 +1,15 @@
 class TicketsController < ApplicationController
   def index
     @tickets = Ticket.all
+    filtering_params.each do |key, value|
+      @tickets = @tickets.public_send(key, value) if value.present?
+    end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @tickets.to_csv }
+      format.xls #{ render "results" }
+    end
   end
 
   def show
@@ -51,6 +60,12 @@ class TicketsController < ApplicationController
       @completed = Ticket.where(completed: true)
     end
   end
+
+  def filtering_params
+    params.permit(:car, :category, :location, :completed).to_h
+  end
+
+  helper_method :filtering_params
 
   private
 

@@ -1,9 +1,30 @@
-<h1>Open Tickets</h1>
+<%= render partial: 'layouts/navbar', locals: {title: "REPORTS"} %>
 
-<ul>
-<% @tickets.each do |ticket| %>
-    <li>
-     Ticket for <%= link_to ticket.car.name, car_path(ticket.car.id) %>
-    </li>
-<% end %>
-</ul>
+<h3 classs='header'> RESULTS </h3>
+<div class='priorityBox'>
+    <div class='priorityBoxTitle'> TICKETS </div>
+    <% @tickets.each do |item| %>
+        <div class='priorityTickets'>
+             <% if(item.in_progress) == true %>
+             <%= link_to finalize_path(:id => item.id) do %>
+                <div class='ticketLink green'>
+                    <div class="leftDiv"><%= item.car.name %></div>
+                    <div class="centerDiv"><%= item.category %></div>
+                    <div class="rightDiv"><%= item.car.generation %></div>
+                </div>
+                <% end %>
+                <% else %>
+             <%= link_to ticket_path(:id => item.id) do %>
+                <div class='ticketLink'>
+                    <div class="leftDiv"><%= item.car.name %></div>
+                    <div class="centerDiv"><%= item.category %></div>
+                    <div class="rightDiv"><%= item.car.generation %></div>
+                </div>
+            <% end %>
+            <% end %>
+        </div>
+    <% end %>
+</div>
+
+<%= link_to "Download Excel File", tickets_path(filtering_params.merge(format: :xls)) %>
+
