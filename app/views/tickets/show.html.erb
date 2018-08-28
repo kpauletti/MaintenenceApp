@@ -2,6 +2,9 @@
 
 
 <h2 class="header"><%= @ticket.car.name %></h1>
+<div style='text-align:center;'>
+Created on: <%= @ticket.created_at.to_formatted_s(:long)  %>
+</div>
 
 <% if @ticket.completed == false %>
     <%= render 'notcompleted' %>

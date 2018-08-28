@@ -2,7 +2,7 @@
 
 <div style="text-align:center">
 
-<h3 classs='header'> SEARCH </h3> 
+<h3 classs='header'> SEARCH </h3>
 <hr>
 
   <%= form_for "", url: tickets_path, method: :get do |f| %>
@@ -35,6 +35,15 @@
      {:include_blank => true} ,
      {} %>
      <div>
+     <div>
+     <%= f.label "After date: "%>
+     <%= f.text_field :created_after, data:{ provide:'datepicker' } %>
+     </div>
+     <br>
+      <div>
+     <%= f.label "Before date: "%>
+     <%= f.text_field :created_before, data:{ provide:'datepicker' } %>
+     </div>
      <br>
     <%= f.submit 'SEARCH' %>
      </div>

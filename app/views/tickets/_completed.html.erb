@@ -35,7 +35,13 @@
         COMPLETED BY<br>
         <span class='ticketText'>
             <%= @ticket.mechanic %> <br>
-            <%= @ticket.updated_at.to_formatted_s(:long_ordinal)%>
+            <%= @ticket.completed_on.strftime('%v')   %>
+        </span>
+    </div>
+        <div class='ticketItem'>
+        UNDER WARRANTY<br>
+        <span class='ticketText'>
+            <%= @ticket.repair_under_warranty %> <br>
         </span>
     </div>
 

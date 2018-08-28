@@ -66,7 +66,7 @@ class TicketsController < ApplicationController
   end
 
   def filtering_params
-    params.permit(:car, :category, :location, :completed).to_h
+    params.permit(:car, :category, :location, :completed, :created_after, :created_before).to_h
   end
 
   helper_method :filtering_params
@@ -74,6 +74,8 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:category, :note, {pictures: []}, :driveable, :mechanic, :car_id, :completed, :part_used, :time_spent, :location, :in_progress, :repair_under_warranty)
+    params.require(:ticket)
+      .permit(:category, :note, {pictures: []}, :driveable, :mechanic, :car_id,
+              :completed, :part_used, :time_spent, :location, :in_progress, :repair_under_warranty, :completed_on)
   end
 end

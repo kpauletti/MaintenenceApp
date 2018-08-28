@@ -38,13 +38,7 @@ end
   )
 end
 
-# 20.times do |x|
-#   Part.create(
-#     part_num: Faker::Code.isbn,
-#     name: Faker::Commerce.product_name,
-#     quantity: 10,
-#   )
-# end
+
 
 require "csv"
 
