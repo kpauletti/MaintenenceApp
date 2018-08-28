@@ -1,0 +1,53 @@
+<div class='newTicketHeader'>
+    <h2 class='header'> <%= @car.name %> </h2>
+    <p class='gen'> <%= @car.generation %> </p>
+</div>
+
+<div class='ticketContainer'>
+<%= form_with(model: ticket, local: true) do |f| %>
+    <div class='ticketItem'>
+        MAINTENANCE CATEGORY<br>
+        <div class='select-style'>
+            <%= f.select :category, ['Mechanical', 'Electrical', 'Body', 'Wrap', 'Other' ], {}, {required: 'true', autofocus: 'true' }%>
+        </div>
+    </div>
+    <div class='ticketItem'>
+        CAN THE CAR DRIVE?<br>
+        <div class='select-style'>
+            <%= f.select :driveable, [ ["Yes", true], ["No", false] ], {}, {required: 'true', autofocus: 'true' }%>
+        </div>
+    </div>
+    <div class='ticketItem'>
+        <div class="image-upload">
+           ADD PICTURE<br><br>
+            <div class="fileField">
+            <%# <label for="file" class="input-label">
+            <i class="fa fa-upload"></i> <span class="label-span">ADD PHOTOS</span>
+            </label> %>
+            <%= f.file_field :pictures, multiple: true, id: "file" %>
+            </div>
+        </div>
+
+
+    </div>
+        <div class='ticketItem'>
+        LOCATION<br>
+        <div class="select-style">
+        <%= f.select :location, ['Coconut Grove', 'Coral Gables', 'Hallandale Beach', 'Key Biscayne', 'Mainland', 'Miami Lakes', 'South Beach', 'Other'], {}, {required: 'true', autofocus: 'true' } %> </div> <br>
+    </div>
+
+    <div class='ticketItem'>
+        NOTES<br> <%= f.text_field :note %> <br>
+    </div>
+
+    <div class='ticketItem'>
+        WARRANTY REPAIR?<br> <%= f.select :repair_under_warranty, [ ["Yes", true], ["No", false] ], {}, {required: 'true', autofocus: 'true' }%> <br>
+    </div>
+
+        <%= f.hidden_field :car_id, value: params[:car_id] %>
+        <%= f.hidden_field :completed, value: false %>
+    <div class='submitTicketButton'>
+        <%= f.submit "CREATE TICKET", class: 'submitButton' %>
+    </div>
+<% end %>
+</div>

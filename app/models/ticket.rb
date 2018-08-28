@@ -8,6 +8,7 @@ class Ticket < ApplicationRecord
   scope :location, -> (location) { where location: location }
   scope :completed, -> (completed) { where completed: completed }
   scope :car, -> (car) { where car_id: car }
+  scope :date_range, -> (start_date, end_date) { where("created_at >= ? AND created_at <= ?", start_date, end_date) }
 
   def notify
     @admin_list = YAML.load_file("config/administrators.yml")

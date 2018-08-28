@@ -1,0 +1,18 @@
+<div class="formContainer">
+  <%= form_with(model: car, local: true) do |form| %>
+
+    <div class="ticketItem">
+      NAME
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="ticketItem">
+      GENERATION
+      <%= form.text_field :generation %>
+    </div>
+
+    <div class="doneButton">
+      <%= form.submit "DONE", id: "done" %>
+    </div>
+  <% end %>
+</div>

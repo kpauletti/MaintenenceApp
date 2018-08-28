@@ -59,9 +59,11 @@
         <%= f.hidden_field :driveable, value: true %>
 
             <div class="submitTicketButton">
+
                 <%= f.hidden_field :completed, value: true %>
                 <%= f.submit "JOB COMPLETE", class: 'submitButton final' %>
                 <% end %>
+                
 
 
                 <%= form_for @ticket, method: "patch" do |d| %>

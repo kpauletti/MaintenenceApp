@@ -31,6 +31,10 @@ class TicketsController < ApplicationController
     @car = Car.find(params[:car_id])
   end
 
+  def edit
+    @ticket = Ticket.find(params[:id])
+  end
+
   def create
     @ticket = Ticket.new(ticket_params)
 
@@ -70,6 +74,6 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:category, :note, {pictures: []}, :driveable, :mechanic, :car_id, :completed, :part_used, :time_spent, :location, :in_progress)
+    params.require(:ticket).permit(:category, :note, {pictures: []}, :driveable, :mechanic, :car_id, :completed, :part_used, :time_spent, :location, :in_progress, :repair_under_warranty)
   end
 end

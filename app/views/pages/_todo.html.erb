@@ -10,6 +10,14 @@
                     <div class="rightDiv"><%= item.car.generation %></div>
                 </div>
                 <% end %>
+                <% elsif(item.repair_under_warranty == true) %>
+             <%= link_to ticket_path(:id => item.id) do %>
+                <div class='ticketLink yellow'>
+                    <div class="leftDiv"><%= item.car.name %></div>
+                    <div class="centerDiv"><%= item.category %></div>
+                    <div class="rightDiv"><%= item.car.generation %></div>
+                </div>
+            <% end %>
                 <% else %>
              <%= link_to ticket_path(:id => item.id) do %>
                 <div class='ticketLink'>

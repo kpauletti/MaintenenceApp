@@ -545,6 +545,7 @@
         height: auto;
     }
     .adminContainer {
+        position: relative;
         background-image: linear-gradient(
             to right top,
             #051937,
@@ -556,21 +557,37 @@
         min-height: 800px;
     }
 
-    .newUserParent {
-        margin: auto;
+    .new-user-link {
+        display: inline-block;
+        width: 50%;
+        padding: 10px 10px;
         text-align: center;
-        border: 2px solid #102f5a;
         border-radius: 10px;
-        font-weight: 900;
-        margin-top: 50%;
-        font-size: 24px;
-        background-color: #102f5a;
+        border: 1px solid #051937;
+        position: absolute;
+        text-transform: uppercase;
+        top: 33%;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        box-shadow: 0px 2.5px black;
+        background-color: white;
     }
-
-    .newUserChild a {
-        margin: 20%;
-        line-height: 100px;
-        color: #cad94a;
+    .new-car-link {
+        display: inline-block;
+        width: 50%;
+        padding: 10px 10px;
+        text-align: center;
+        border-radius: 10px;
+        border: 1px solid #051937;
+        position: absolute;
+        text-transform: uppercase;
+        top: 45%;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        box-shadow: 0px 2.5px black;
+        background-color: white;
     }
 
     .adminContainer form {
@@ -632,6 +649,10 @@
         background-color: #00bf72;
     }
 
+    .yellow {
+        background-color: #cad94a;
+    }
+
     .final {
         background-color: #102f5a;
         color: white;
@@ -640,5 +661,6 @@
         padding: 14px 14px;
         width: 45%;
         text-align: center;
+        margin-top: 5px;
     }
 }
